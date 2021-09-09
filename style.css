@@ -1,3 +1,7 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
 .container {
   margin-top: 60px;
   margin-left: 60px;
@@ -13,4 +17,8 @@
 
 p {
   font-weight: bold;
+}
+
+span {
+  font-weight: 500;
 }

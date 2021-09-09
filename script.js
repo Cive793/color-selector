@@ -5,7 +5,11 @@ const colorInput = document.querySelector("input");
 const rgb;
 const hsl; */
 
-window.addEventListener("DOMContentLoaded", getInput);
+window.addEventListener("DOMContentLoaded", prepareData);
+
+function prepareData() {
+  getInput();
+}
 
 function getInput() {
   console.log("getInput");
@@ -23,7 +27,19 @@ function showColor() {
 function getHex() {
   console.log("getHex");
   const hex = document.querySelector("#hex");
-  hex.innerHTML = colorInput.value;
+  hex.textContent = colorInput.value;
+  getRgb();
+}
+
+function getRgb() {
+  console.log("getRgb");
+  const hexValue = colorInput.value;
+  let r = hexValue.substring(1, 3);
+  let g = hexValue.substring(3, 5);
+  let b = hexValue.substring(5);
+  console.log(r);
+  console.log(g);
+  console.log(b);
 }
 
 /* r /= 255;
