@@ -1,6 +1,6 @@
 "use strict";
 
-const input = document.querySelector("input");
+const colorInput = document.querySelector("input");
 /* const hex;
 const rgb;
 const hsl; */
@@ -9,19 +9,21 @@ window.addEventListener("DOMContentLoaded", getInput);
 
 function getInput() {
   console.log("getInput");
-  input.addEventListener("input", showColor);
+  colorInput.addEventListener("input", showColor);
   //console.log(input);
 }
 
 function showColor() {
   console.log("showColor");
-  const color = document.querySelector(".colourbox");
-  color.style.backgroundColor = input.value;
+  const color = document.querySelector(".colorbox");
+  color.style.backgroundColor = colorInput.value;
   getHex();
 }
 
 function getHex() {
   console.log("getHex");
+  const hex = document.querySelector("#hex");
+  hex.innerHTML = colorInput.value;
 }
 
 /* r /= 255;

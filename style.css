@@ -3,7 +3,7 @@
   margin-left: 60px;
 }
 
-.colourbox {
+.colorbox {
   margin-top: 20px;
   width: 200px;
   height: 200px;
@@ -11,6 +11,6 @@
   border-radius: 10%;
 }
 
-span {
+p {
   font-weight: bold;
 }
