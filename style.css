@@ -1,0 +1,16 @@
+.container {
+  margin-top: 60px;
+  margin-left: 60px;
+}
+
+.colourbox {
+  margin-top: 20px;
+  width: 200px;
+  height: 200px;
+  background-color: lightcoral;
+  border-radius: 10%;
+}
+
+span {
+  font-weight: bold;
+}
