@@ -27,6 +27,11 @@ function showColor() {
 function getHex() {
   console.log("getHex");
   const hex = document.querySelector("#hex");
+  const rgb = document.querySelector("#rgb");
+  showHex();
+}
+
+function showHex() {
   hex.textContent = colorInput.value;
   getRgb();
 }
@@ -34,12 +39,25 @@ function getHex() {
 function getRgb() {
   console.log("getRgb");
   const hexValue = colorInput.value;
-  let r = hexValue.substring(1, 3);
-  let g = hexValue.substring(3, 5);
-  let b = hexValue.substring(5);
-  console.log(r);
-  console.log(g);
-  console.log(b);
+  const rValue = hexValue.substring(1, 3);
+  const gValue = hexValue.substring(3, 5);
+  const bValue = hexValue.substring(5);
+  console.log(rValue);
+  console.log(gValue);
+  console.log(bValue);
+  calculateRgb(rValue, gValue, bValue);
+}
+
+function calculateRgb(r, g, b) {
+  const R = parseInt("0x" + r, 16);
+  const G = parseInt("0x" + g, 16);
+  const B = parseInt("0x" + b, 16);
+  console.log(R, G, B);
+  showRgb(R, G, B);
+}
+
+function showRgb(R, G, B) {
+  rgb.textContent = (R, G, B);
 }
 
 /* r /= 255;
