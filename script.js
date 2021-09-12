@@ -1,9 +1,6 @@
 "use strict";
 
 const colorInput = document.querySelector("input");
-/* const hex;
-const rgb;
-const hsl; */
 
 window.addEventListener("DOMContentLoaded", prepareData);
 
@@ -27,7 +24,7 @@ function showColor() {
 function getHex() {
   console.log("getHex");
   const hex = document.querySelector("#hex");
-  const rgb = document.querySelector("#rgb");
+
   showHex();
 }
 
@@ -57,7 +54,13 @@ function calculateRgb(r, g, b) {
 }
 
 function showRgb(R, G, B) {
-  rgb.textContent = (R, G, B);
+  const rID = document.querySelector("#r");
+  const gID = document.querySelector("#g");
+  const bID = document.querySelector("#b");
+
+  rID.textContent = R + ", ";
+  gID.textContent = G + ", ";
+  bID.textContent = B;
 }
 
 /* r /= 255;
