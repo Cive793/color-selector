@@ -51,6 +51,7 @@ function calculateRgb(r, g, b) {
   const B = parseInt("0x" + b, 16);
   console.log(R, G, B);
   showRgb(R, G, B);
+  calculateHsl(R, G, B);
 }
 
 function showRgb(R, G, B) {
@@ -63,39 +64,58 @@ function showRgb(R, G, B) {
   bID.textContent = B;
 }
 
-/* r /= 255;
-g /= 255;
-b /= 255;
+function calculateHsl(R, G, B) {
+  R /= 255;
+  G /= 255;
+  B /= 255;
 
-let h, s, l;
+  let h, s, l;
 
-const min = Math.min(r, g, b);
-const max = Math.max(r, g, b);
+  const min = Math.min(R, G, B);
+  const max = Math.max(R, G, B);
 
-if (max === min) {
-  h = 0;
-} else if (max === r) {
-  h = 60 * (0 + (g - b) / (max - min));
-} else if (max === g) {
-  h = 60 * (2 + (b - r) / (max - min));
-} else if (max === b) {
-  h = 60 * (4 + (r - g) / (max - min));
+  if (max === min) {
+    h = 0;
+  } else if (max === R) {
+    h = 60 * (0 + (G - B) / (max - min));
+  } else if (max === G) {
+    h = 60 * (2 + (B - R) / (max - min));
+  } else if (max === B) {
+    h = 60 * (4 + (R - G) / (max - min));
+  }
+
+  if (h < 0) {
+    h = h + 360;
+  }
+
+  l = (min + max) / 2;
+
+  if (max === 0 || min === 1) {
+    s = 0;
+  } else {
+    s = (max - l) / Math.min(l, 1 - l);
+  }
+  // multiply s and l by 100 to get the value in percent, rather than [0,1]
+  s *= 100;
+  l *= 100;
+
+  console.log("hsl(%f,%f%,%f%)", h, s, l); // just for testing
+  roundHsl(h, s, l);
 }
 
-if (h < 0) {
-  h = h + 360;
+function roundHsl(h, s, l) {
+  const hRound = Math.round(h);
+  const sRound = Math.round(s);
+  const lRound = Math.round(l);
+  showHsl(hRound, sRound, lRound);
 }
 
-l = (min + max) / 2;
+function showHsl(h, s, l) {
+  const hID = document.querySelector("#h");
+  const sID = document.querySelector("#s");
+  const lID = document.querySelector("#l");
 
-if (max === 0 || min === 1) {
-  s = 0;
-} else {
-  s = (max - l) / Math.min(l, 1 - l);
+  hID.textContent = h + ", ";
+  sID.textContent = s + ", ";
+  lID.textContent = l;
 }
-// multiply s and l by 100 to get the value in percent, rather than [0,1]
-s *= 100;
-l *= 100;
-
-console.log("hsl(%f,%f%,%f%)", h, s, l); // just for testing
- */
